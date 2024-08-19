@@ -21,7 +21,7 @@ def extract_headings(markdown_file):
     return bullet_list
 
 # Example usage
-markdown_file = r"C:\Users\lpeve\iCloudDrive\iCloud~md~obsidian\LorenzoTreasury\3.12.0 Data Engineering and Cloud\Azure\_Azure AI Search Applied AI Skillsets Image.md"
+markdown_file = r"C:\Users\lpeve\iCloudDrive\iCloud~md~obsidian\LorenzoTreasury\3.12.0 Data Engineering and Cloud\Azure\Azure AI Search Indexer Running and Scheduling.md"
 bullets = extract_headings(markdown_file)
 for bullet in bullets:
     print(bullet)
