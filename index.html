@@ -80,10 +80,13 @@
                 // Find all headings
                 while ((match = regex.exec(content)) !== null) {
                     const level = match[1].length; // Number of '#' symbols
-                    const heading = match[2];
-                    const indentation = '  '.repeat(level - 1); // Adjust indentation level
+                    const heading = match[2].trim();
 
-                    bulletList.push(`${indentation}- [[${filename}#${heading}|${heading}]]`);
+                    if (level === 3) {
+                        bulletList.push(`- [${filename}#${heading}|${heading}]`);
+                    } else if (level === 6) {
+                        bulletList.push(`###### ${heading}`);
+                    }
                 }
 
                 // Display result
