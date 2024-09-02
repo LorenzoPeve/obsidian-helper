@@ -73,18 +73,16 @@
                 const filename = file.name.replace(/\.[^/.]+$/, ""); // Remove file extension
 
                 // Regular expression to find headings
-                const regex = /^(#+)\s+(.+)/gm;
+                const regex = /^(#{1,6})\s+(.+)/gm;
                 const bulletList = [];
                 let match;
 
                 // Find all headings
                 while ((match = regex.exec(content)) !== null) {
                     const level = match[1].length; // Number of '#' symbols
-                    const heading = match[2];
-                    const indentation = '  '.repeat(level - 1); // Adjust indentation level
-
-                    bulletList.push(`${indentation}- [[${filename}#${heading}|${heading}]]`);
-                }
+                    const heading = match[2].trim();
+                    bulletList.push(`- [[${filename}#${heading}|${heading}]]`);
+                   }
 
                 // Display result
                 output.value = bulletList.join('\n');
