@@ -81,8 +81,10 @@
                 while ((match = regex.exec(content)) !== null) {
                     const level = match[1].length; // Number of '#' symbols
                     const heading = match[2].trim();
+
                     bulletList.push(`- [[${filename}#${heading}|${heading}]]`);
-                   }
+
+                }
 
                 // Display result
                 output.value = bulletList.join('\n');
